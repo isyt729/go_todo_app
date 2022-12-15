@@ -5,12 +5,12 @@ import (
 )
 
 type Config struct{
-	Env string `env: "TODO_ENV" envDefault: "dev"`
-	Port int   `env* "PORT" envDefault: "80"`
+	Env string `env:"TODO_ENV" envDefault:"dev"`
+	Port int   `env:"PORT" envDefault:"80"`
 }
 
 func New() (*Config, error){
-	cfg :=&Config{}
+	cfg := &Config{}
 	if err := env.Parse(cfg); err != nil{
 		return nil, err
 	}
